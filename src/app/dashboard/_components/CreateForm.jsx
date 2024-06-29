@@ -20,7 +20,7 @@ import { Loader2 } from "lucide-react";
 import { chatSession } from "@/configs/AiModal";
 
 const PROMPT =
-  ". Based on the 'Field', please provide 10 research papers (which should be published after 2018) in json format , including title, author, publish-date, a brief summary, a harvard style reference, a harvard style in-text referecne, a link to the paper, and a download link.";
+  ". Based on the 'Field', please provide 3 research papers (which should be published after 2018) in json format , including title, author, publish-date, a brief summary, a harvard style reference, a harvard style in-text referecne, a link to the paper, and a download link.";
 
 const extractJsonString = (input) => {
   const regex = /```json([\s\S]*?)```/;
@@ -45,38 +45,38 @@ const CreateForm = ({ isFromHero }) => {
       "Field: " + userInput + PROMPT
     );
 
-    if(result.response.text()){
-      console.log(result.response.text());
-    }
-
-    // if (result.response.text()) {
-    //   // parse response
-    //   const extracted = extractJsonString(result.response.text());
-
-    //   console.log("extracted = " + extracted);
-
-    //   // insert to db
-    //   const { data, error } = await supabase
-    //     .from("forms")
-    //     .insert([
-    //       {
-    //         jsonForm: extracted,
-    //         createBy: user?.primaryEmailAddress?.emailAddress,
-    //       },
-    //     ])
-    //     .select("id");
-
-    //   if (error) {
-    //     throw error;
-    //   }
-
-    //   if (data) {
-    //     console.log("Inserted row ID:", data[0].id);
-    //     router.push(`/edit-form/${data[0].id}`);
-    //   }
-
-    //   setLoading(false);
+    // if(result.response.text()){
+    //   console.log(result.response.text());
     // }
+
+    if (result.response.text()) {
+      // parse response
+      const extracted = extractJsonString(result.response.text());
+
+      console.log("extracted = " + extracted);
+
+      // insert to db
+      const { data, error } = await supabase
+        .from("summary")
+        .insert([
+          {
+            jsonRes: extracted,
+            createBy: user?.primaryEmailAddress?.emailAddress,
+          },
+        ])
+        .select("id");
+
+      if (error) {
+        throw error;
+      }
+
+      if (data) {
+        // console.log("Inserted row ID:", data[0].id);
+        router.push(`/preview/${data[0].id}`);
+      }
+
+      setLoading(false);
+    }
 
     setLoading(false);
   };
@@ -126,10 +126,10 @@ const CreateForm = ({ isFromHero }) => {
                   {loading ? (
                     <div className="flex items-center gap-2">
                       <Loader2 className="animate-spin" />
-                      Generating your summary...
+                      Generating data...
                     </div>
                   ) : (
-                    "Get Summary"
+                    "Get data"
                   )}
                 </Button>
               </div>

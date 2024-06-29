@@ -31,17 +31,17 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-const FormList = () => {
+const ResList = () => {
   const { user } = useUser();
-  const [formList, setFormList] = useState([]);
+  const [resList, setResList] = useState([]);
 
   useEffect(() => {
-    user && getForms();
+    user && getResponses();
   }, [user]);
 
-  const getForms = async () => {
-    let { data: forms, error } = await supabase
-      .from("forms")
+  const getResponses = async () => {
+    let { data: responses, error } = await supabase
+      .from("summary")
       .select("*")
       // Filters
       .eq("createBy", user?.primaryEmailAddress?.emailAddress)
@@ -51,27 +51,27 @@ const FormList = () => {
       throw error;
     }
 
-    setFormList(forms);
-    console.log(forms);
+    setResList(responses);
+    console.log(responses);
   };
 
-  const onDeleteForm = async (formID) => {
-    const { error } = await supabase.from("forms").delete().eq("id", formID);
-    if (error) {
-      toast("There is an error, please try again later.", {
-        description: `${new Date().toLocaleTimeString()},  ${new Date().toLocaleDateString()}`,
-      });
+  // const onDeleteForm = async (formID) => {
+  //   const { error } = await supabase.from("forms").delete().eq("id", formID);
+  //   if (error) {
+  //     toast("There is an error, please try again later.", {
+  //       description: `${new Date().toLocaleTimeString()},  ${new Date().toLocaleDateString()}`,
+  //     });
 
-      throw error;
-    }
-    toast("Your form has been deleted.", {
-      description: `${new Date().toLocaleTimeString()},  ${new Date().toLocaleDateString()}`,
-    });
-    getForms();
-  };
+  //     throw error;
+  //   }
+  //   toast("Your form has been deleted.", {
+  //     description: `${new Date().toLocaleTimeString()},  ${new Date().toLocaleDateString()}`,
+  //   });
+  //   getForms();
+  // };
 
-  const handleCopyClick = (formID) => {
-    navigator.clipboard.writeText(`lucassu-ai-form-builder.vercel.app/preview/${formID}`);
+  const handleCopyClick = (formId) => {
+    navigator.clipboard.writeText(`lucassu-ai-form-builder.vercel.app/preview/${formId}`);
     toast("Live link copied.", {
       // description: `${new Date().toLocaleTimeString()},  ${new Date().toLocaleDateString()}`,
     });
@@ -79,10 +79,10 @@ const FormList = () => {
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-5 mt-4">
-      {formList ? (
-        formList.map((formJson, index) => {
-          const form = JSON.parse(formJson.jsonForm);
-          const formID = formJson.id;
+      {resList ? (
+        resList.map((item, index) => {
+          const res = JSON.parse(item.resForm);
+          const resId = item.id;
           return (
             <div
               key={index}
@@ -111,7 +111,7 @@ const FormList = () => {
                         <AlertDialogCancel>Cancel</AlertDialogCancel>
                         <AlertDialogAction
                           onClick={() => {
-                            onDeleteForm(formID);
+                            // onDeleteForm(formID);
                           }}
                         >
                           Continue
@@ -120,8 +120,8 @@ const FormList = () => {
                     </AlertDialogContent>
                   </AlertDialog>
                 </div>
-                <p className="font-medium">{form.formTitle}</p>
-                <p className="text-sm text-gray-600">{form.formSubtitle}</p>
+                <p className="font-medium">{res.title}</p>
+                <p className="text-sm text-gray-600">{res.author}</p>
               </div>
 
               <div>
@@ -152,11 +152,11 @@ const FormList = () => {
                       </Label>
                       <Input
                         id="link"
-                        defaultValue={`lucassu-ai-form-builder.vercel.app/preview/${formID}`}
+                        defaultValue={`lucassu-ai-form-builder.vercel.app/preview/${resId}`}
                         readOnly
                       />
                     </div>
-                    <Button type="submit" size="sm" className="px-3" onClick={()=>handleCopyClick(formID)}>
+                    <Button type="submit" size="sm" className="px-3" onClick={()=>handleCopyClick(resId)}>
                       <span className="sr-only">Copy</span>
                       <Copy className="h-4 w-4" />
                     </Button>
@@ -172,7 +172,7 @@ const FormList = () => {
                 </DialogContent>
               </Dialog>
 
-                  <Link href={`/edit-form/${formID}`}>
+                  <Link href={`/edit-form/${resId}`}>
                     <Button className="text-xs flex gap-1" size="sm">
                       <Edit className="h-4 w-4" />
                       Edit
@@ -193,4 +193,4 @@ const FormList = () => {
   );
 };
 
-export default FormList;
+export default ResList;
