@@ -20,7 +20,7 @@ import { Loader2 } from "lucide-react";
 import { chatSession } from "@/configs/AiModal";
 
 const PROMPT =
-  ". Based on the 'Field', please provide 10 research papers (which should be published after 2018) in json format , including title, author, publish-date, a brief summary, and a link to the paper.";
+  ". Based on the 'Field', please provide 10 research papers (which should be published after 2018) in json format , including title, author, publish-date, a brief summary, a harvard style reference, a harvard style in-text referecne, a link to the paper, and a download link.";
 
 const extractJsonString = (input) => {
   const regex = /```json([\s\S]*?)```/;

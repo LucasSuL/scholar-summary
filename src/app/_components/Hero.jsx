@@ -10,20 +10,21 @@ import {
   Shield,
   Smile,
 } from "lucide-react";
+import Image from "next/image";
 
 const Hero = () => {
   return (
     <div id="top">
       <section className="bg-gray-900 text-white">
-        <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
+        <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-[calc(100vh-56px)] lg:items-center">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
-              Understand Your
-              <span className="sm:block"> Increase Conversion. </span>
+              Making knowledge accessible for all.{" "}
+              {/* <span className="sm:block"> Increase Conversion. </span> */}
             </h1>
 
             <p className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
-            Making knowledge accessible for all.
+              15-min simplified summaries of cutting-edge research papers.
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -33,7 +34,9 @@ const Hero = () => {
                 href={"https://github.com/LucasSuL/ai-form-builder"}
                 target="_blank"
               >
-                <Button className="bg-gray-900" variant="outline">Learn More</Button>
+                <Button className="bg-gray-900" variant="outline">
+                  Learn More
+                </Button>
               </Link>
             </div>
           </div>
@@ -50,10 +53,12 @@ const Hero = () => {
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 1. Create Your Form
               </h2>
-              <img
+              <Image
                 alt=""
                 src="/create_form.png"
                 className="h-60 w-full object-cover"
+                width={500}
+                height={500}
               />
 
               <div className="p-4 sm:p-6">
@@ -75,10 +80,12 @@ const Hero = () => {
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 2. Customize Your Form
               </h2>
-              <img
+              <Image
                 alt=""
                 src="/edit_form.png"
                 className="h-60 w-full object-cover"
+                width={500}
+                height={500}
               />
 
               <div className="p-4 sm:p-6">
@@ -112,10 +119,12 @@ const Hero = () => {
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 3. Manage Forms and Data
               </h2>
-              <img
+              <Image
                 alt=""
                 src="/manage_form.png"
                 className="h-60 w-full object-cover"
+                width={500}
+                height={500}
               />
 
               <div className="p-4 sm:p-6">
