@@ -36,7 +36,6 @@ const ResList = ({ params }) => {
   const { user } = useUser();
   const [resList, setResList] = useState([]);
   const id = params.resId;
-  const router = useRouter();
 
   useEffect(() => {
     user && getResponses();
