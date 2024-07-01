@@ -13,22 +13,22 @@ const Header = () => {
 
   return (
     // if in preview page, hide header
-    !path.includes("preview") && (
+    // !path.includes("preview") && (
       <header className="border-b align-middle shadow-sm sticky z-[100] top-0 w-full border-gray-200 bg-white/95 backdrop-blur-lg transition-all">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="flex-1 md:flex md:items-center md:gap-12">
               <Link href={"/"}>
-                <div className="flex gap-2 items-center">
+                <div className="flex gap-1 items-center">
                   <Image
                     alt="logo"
-                    className="text-blue-700"
+                    className=""
                     src="/logo.svg"
-                    width={45}
-                    height={45}
+                    width={50}
+                    height={50}
                   />
                   <p className="font-bold text-lg hidden lg:block">
-                    AI Scholar Summary
+                    <span className="color-test">AI</span> Scholar Summary
                   </p>
                 </div>
               </Link>
@@ -116,7 +116,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-    )
+    // )
   );
 };
 

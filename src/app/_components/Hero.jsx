@@ -17,28 +17,37 @@ const Hero = () => {
     <div id="top">
       <section className="bg-gray-900 text-white">
         <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-[calc(100vh-56px)] lg:items-center">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
-              Making knowledge accessible for all.{" "}
-              {/* <span className="sm:block"> Increase Conversion. </span> */}
-            </h1>
+          <div className="flex justify-between align-middle">
+            <div className="max-w-3xl text-center  my-auto">
+              <h1 className="bg-gradient-to-r from-orange-400 via-blue-500 to-purple-600 bg-clip-text text-4xl font-extrabold text-transparent sm:text-5xl">
+                Making knowledge accessible for all.{" "}
+                {/* <span className="sm:block"> Increase Conversion. </span> */}
+              </h1>
 
-            <p className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
-              15-min simplified summaries of cutting-edge research papers.
-            </p>
+              <p className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
+                15-min simplified summaries of cutting-edge research papers.
+              </p>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <CreateForm />
+              <div className="mt-8 flex flex-wrap justify-center gap-4">
+                <CreateForm />
 
-              <Link
-                href={"https://github.com/LucasSuL/ai-form-builder"}
-                target="_blank"
-              >
-                <Button className="bg-gray-900" variant="outline">
-                  Learn More
-                </Button>
-              </Link>
+                <Link
+                  href={"https://github.com/LucasSuL/ai-form-builder"}
+                  target="_blank"
+                >
+                  <Button className="bg-gray-900" variant="outline">
+                    Learn More
+                  </Button>
+                </Link>
+              </div>
             </div>
+            <Image
+              alt=""
+              src="/business-3d-friendly-robot-assistant-waving.png"
+              width={300}
+              height={400}
+              className=""
+            />
           </div>
         </div>
       </section>
@@ -158,7 +167,7 @@ const Hero = () => {
         </div>
       </section>
 
-      <section id="4-marketing">
+      <section id="3-marketing">
         <section className="bg-gray-900 text-white pb-20">
           <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
             <div className="mx-auto max-w-lg text-center">
@@ -270,7 +279,7 @@ const Hero = () => {
         </section>
       </section>
 
-      <section id="3-reviews">
+      <section id="4-reviews">
         <section className="bg-white">
           <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
             <h2 className="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">

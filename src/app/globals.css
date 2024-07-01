@@ -78,3 +78,7 @@ html {
     @apply bg-background text-foreground;
   }
 }
+
+.color-test{
+  color:#F97316
+}
