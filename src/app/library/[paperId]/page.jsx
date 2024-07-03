@@ -10,57 +10,61 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import books from "../../_data/books";
 
 const Paper = ({ params }) => {
-  const { resId, paperId } = params;
+  let { paperId } = params;
   const { user } = useUser();
   const [paper, setPaper] = useState([]);
 
-  useEffect(() => {
-    user && getResponses();
-  }, [user]);
+  useEffect(()=>{setPaper(books[paperId])},[])
 
-  const getResponses = async () => {
-    let { data: responses, error } = await supabase
-      .from("summary")
-      .select("*")
-      // Filters
-      .eq("id", resId)
-      // .eq("createBy", user?.primaryEmailAddress?.emailAddress)
-      .order("created_at", { ascending: false });
+  console.log(`/book-covers/bc${paperId}.png`);
+  // useEffect(() => {
+  //   user && getResponses();
+  // }, [user]);
 
-    if (error) {
-      throw error;
-    }
+  // const getResponses = async () => {
+  //   let { data: responses, error } = await supabase
+  //     .from("summary")
+  //     .select("*")
+  //     // Filters
+  //     .eq("id", resId)
+  //     // .eq("createBy", user?.primaryEmailAddress?.emailAddress)
+  //     .order("created_at", { ascending: false });
 
-    let data = JSON.parse(responses[0].jsonRes);
-    console.log(data[paperId]);
-    setPaper(data[paperId]);
-  };
+  //   if (error) {
+  //     throw error;
+  //   }
 
-  const handleCopyClick = (citation) => {
-    navigator.clipboard.writeText(citation);
-    toast("Link copied.", {
-      description: `${new Date().toLocaleTimeString()},  ${new Date().toLocaleDateString()}`,
-    });
-  };
+  //   let data = JSON.parse(responses[0].jsonRes);
+  //   console.log(data[paperId]);
+  //   setPaper(data[paperId]);
+  // };
+
+  // const handleCopyClick = (citation) => {
+  //   navigator.clipboard.writeText(citation);
+  //   toast("Link copied.", {
+  //     description: `${new Date().toLocaleTimeString()},  ${new Date().toLocaleDateString()}`,
+  //   });
+  // };
 
   return (
     <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 pt-4 my-16">
       <div className="relative ">
-        <p className="absolute top-5 left-0 right-0 text-white p-2 w-[276px] text-center text-lg font-bold text-shadow-lg ">
+        {/* <p className="absolute top-5 left-0 right-0 text-white p-2 w-[276px] text-center text-lg font-bold text-shadow-lg ">
           {paper.title}
-        </p>
+        </p> */}
         <Image
-          src="https://picsum.photos/276/370"
+          src={`/book-covers/bc${paperId}.png`}
           alt="random Image"
           className="shadow-lg rounded-lg border"
           width={276}
           height={370}
         ></Image>
-          <p className="absolute bottom-5 left-0 right-0 text-white p-2 w-[276px] text-center text-sm font-bold text-shadow-lg">
+        {/* <p className="absolute bottom-5 left-0 right-0 text-white p-2 w-[276px] text-center text-sm font-bold text-shadow-lg">
           {paper.author}
-        </p>
+        </p> */}
       </div>
 
       <h1 className="text-3xl font-bold mt-5">{paper.title}</h1>
@@ -93,7 +97,7 @@ const Paper = ({ params }) => {
         {paper.summary}
       </div>
 
-      <div className="mt-5">
+      {/* <div className="mt-5">
         <h3 className="font-bold text-lg mb-1">In-Text Reference</h3>
         <div className="flex items-center space-x-2">
           <Button
@@ -123,7 +127,7 @@ const Paper = ({ params }) => {
           </Button>
           <div className="m-0">{paper.harvardReference}</div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

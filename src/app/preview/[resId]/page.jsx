@@ -82,13 +82,9 @@ const ResList = ({ params }) => {
     });
   };
 
-  const handleViewClick = (res, index) => {
-    const resString = encodeURIComponent(JSON.stringify(res));
-    router.push(`/preview/${id}/paper/${index}?data=${resString}`);
-  };
 
   return (
-    <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-3 gap-5 mt-4">
+    <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-3 gap-5 mt-12 mb-32">
       {resList ? (
         resList.map((res, index) => {
           // console.log(res);

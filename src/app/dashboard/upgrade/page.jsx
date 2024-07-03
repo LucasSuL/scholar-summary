@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import PricingPlan from "@/app/_data/PricingPlan";
+import PricingPlan from "@/app/_data/pricingPlan";
 import { useUser } from "@clerk/nextjs";
 
 const Upgrade = () => {
