@@ -72,9 +72,9 @@ const Header = () => {
               <div className="flex items-center gap-4">
                 {isSignedIn ? (
                   <div className="flex items-center gap-4 ">
-                    <Link href={"/dashboard"}>
+                    {/* <Link href={"/dashboard"}>
                       <Button variant="outline">Dashboard ✨</Button>
-                    </Link>
+                    </Link> */}
                     <UserButton />
                   </div>
                 ) : (
