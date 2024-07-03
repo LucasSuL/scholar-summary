@@ -46,16 +46,6 @@ const Header = () => {
                       About{" "}
                     </Link>
                   </li>
-                  {/* 
-                  <li>
-                    <a
-                      className="text-gray-500 transition hover:text-gray-500/75"
-                      href="#"
-                    >
-                      {" "}
-                      Services{" "}
-                    </a>
-                  </li> */}
 
                   <li>
                     <Link
@@ -68,13 +58,13 @@ const Header = () => {
                   </li>
 
                   <li>
-                    <a
+                  <Link
                       className="text-gray-500 transition hover:text-gray-500/75"
-                      href="#"
+                      href="/pricing"
                     >
                       {" "}
                       Pricing{" "}
-                    </a>
+                      </Link>
                   </li>
                 </ul>
               </nav>
