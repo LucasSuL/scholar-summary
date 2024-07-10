@@ -33,7 +33,7 @@ const Library = () => {
 
   useEffect(() => {
     const getSum = async () => {
-      if (files) {
+      if (files.length > 0) {
         try {
           console.log(111);
           console.log(files.length);
