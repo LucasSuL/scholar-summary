@@ -82,7 +82,7 @@ const Header = () => {
               </ul>
             </nav>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center align-middle gap-4">
               {isSignedIn ? (
                 <div className="flex items-center gap-4 ">
                   {/* <Link href={"/dashboard"}>
@@ -96,10 +96,10 @@ const Header = () => {
                 </SignInButton>
               )}
 
-              <div className="block md:hidden">
+              <div className=" md:hidden flex">
                 <DropdownMenu>
                   <DropdownMenuTrigger>
-                    <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+                    <div className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 hover:bg-slate-200 h-full">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5"
@@ -114,7 +114,7 @@ const Header = () => {
                           d="M4 6h16M4 12h16M4 18h16"
                         />
                       </svg>
-                    </button>
+                    </div>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
                     <div className="mt-3">
