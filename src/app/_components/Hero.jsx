@@ -46,7 +46,7 @@ const Hero = () => {
               src="/business-3d-friendly-robot-assistant-waving.png"
               width={300}
               height={400}
-              className=""
+              className="hidden md:block"
             />
           </div>
         </div>
@@ -684,8 +684,6 @@ const Hero = () => {
           </div>
         </section>
       </section>
-
-
     </div>
   );
 };
