@@ -11,32 +11,31 @@ const PROMPT =
   ". Based on the 'Paper', give me the following in json format: paper title, authors, a 200 words summary";
 
 const Library = () => {
-  const [files, setFiles] = useState([]);
+  const [fileContent, setFileContent] = useState("");
 
   useEffect(() => {
-    const fetchFilesContent = async () => {
+    const fetchFileContent = async () => {
       try {
-        const response = await fetch("/api/readFile"); // 修改成新的 API endpoint
+        const response = await fetch("/api/readFile");
         const data = await response.json();
         if (response.ok) {
-          setFiles(data.files); // 设置所有文件的内容到 state 中
+          setFileContent(data.content);
         } else {
-          console.error("Error fetching files:", data.error);
+          console.error("Error fetching file content:", data.error);
         }
       } catch (error) {
-        console.error("Error fetching files:", error);
+        console.error("Error fetching file content:", error);
       }
     };
 
-    fetchFilesContent();
+    fetchFileContent();
   }, []);
 
   useEffect(() => {
     const getSum = async () => {
-      if (files) {
+      if (fileContent) {
         try {
           console.log(111);
-          console.log(files.length);
           // console.log(fileContent);
           // const result = await chatSession.sendMessage(
           //   "Paper:" + fileContent + PROMPT
@@ -49,7 +48,7 @@ const Library = () => {
     };
 
     getSum();
-  }, [files]);
+  }, [fileContent]);
 
   return (
     <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 pt-4 my-16">
