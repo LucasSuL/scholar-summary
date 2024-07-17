@@ -4,7 +4,7 @@ import path from "path";
 import fs from "fs";
 
 export async function GET(request) {
-  const txtFolderPath = path.join(process.cwd(), "public", "papers", "test");
+  const txtFolderPath = path.join(process.cwd(), "public", "papers", "txt");
 
   try {
     // 读取文件夹中的所有文件名
