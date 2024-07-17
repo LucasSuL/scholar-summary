@@ -5,13 +5,18 @@ import books from "../_data/books.js";
 import Image from "next/image";
 import Link from "next/link.js";
 import { chatSession } from "@/configs/AiModal.js";
+import { parseFileName, random } from "@/lib/utils.js";
+import { extractJsonString } from "../utils/parseGeminiJson.js";
+import { writeDataToFile } from "../api/readFile/route.js";
 
 const PROMPT =
-  // ". Based on the 'Paper', give me the following in json format: title, author, publish-date, DOI, abstract of the paper, a 200 words summary, a harvard style reference, a harvard style in-text referecne, a link to the paper, and a pdf download link.";
-  ". Based on the 'Paper', give me the following in json format: paper title, authors, a 200 words summary";
+  ". Based on the Paper, return the json, including 'authors', 'publish date', 'DOI', 'abstract', a 200 words summary of the whole papar, a harvard style reference, a harvard style in-text reference.";
+// "Based on the Paper, summarize it.";
 
 const Library = () => {
   const [files, setFiles] = useState([]);
+  const [localBooks, setLocalBooks] = useState(books);
+  const [isGen, setIsGen] = useState(false);
 
   useEffect(() => {
     const fetchFilesContent = async () => {
@@ -32,29 +37,71 @@ const Library = () => {
   }, []);
 
   useEffect(() => {
-    const getSum = async () => {
-      if (files.length > 0) {
-        try {
-          console.log(111);
-          console.log(files.length);
-          // console.log(fileContent);
-          // const result = await chatSession.sendMessage(
-          //   "Paper:" + fileContent + PROMPT
-          // );
-          // console.log(result.response.text());
-        } catch (error) {
-          console.error("Error sending message to chat session:", error);
-        }
-      }
-    };
-
-    getSum();
+    files && processFilesAndUpdateBooks();
   }, [files]);
+
+  const processFilesAndUpdateBooks = async () => {
+    if (files.length > 0) {
+      try {
+        for (let file of files) {
+          const title = parseFileName(file.fileName);
+          const content = file.content;
+          // console.log("content: " + content);
+
+          console.log("start generating..." + title);
+
+          let resText = "";
+          setIsGen(true);
+
+          if (content) {
+            try {
+              const res = await chatSession.sendMessageStream(
+                "Paper:" + content + PROMPT
+              );
+
+              for await (const item of res.stream) {
+                resText += item.candidates[0].content.parts[0].text;
+              }
+
+              const jsonStr = extractJsonString(resText);
+
+              const resJson = JSON.parse(jsonStr);
+
+              console.log("Response JSON:", resJson);
+
+              setIsGen(false);
+              // Check if title already exists in updatedBooks
+              if (!isGen && !localBooks.some((book) => book.title === title)) {
+                console.log("pushing book: " + title);
+                setLocalBooks((prevBooks) => [
+                  ...prevBooks,
+                  {
+                    cover: `/book-covers/bc${random(0, 12)}.png`, // Dynamic cover path
+                    title: title,
+                    resJson: resJson,
+                  },
+                ]);
+
+                //next step
+                const jsonData = JSON.stringify(localBooks, null, 2);
+                writeDataToFile(jsonData);
+              }
+            } catch (error) {
+              console.error("Error processing file:", file, error);
+            }
+          }
+        }
+        console.log("generating complete..");
+      } catch (error) {
+        console.error("Error processing files:", error);
+      }
+    }
+  };
 
   return (
     <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 pt-4 my-16">
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-5 lg:gap-8">
-        {books.map((book, index) => (
+      <div className="grid grid-cols-2  md:grid-cols-3 gap-4 lg:grid-cols-5 lg:gap-8">
+        {localBooks.map((book, index) => (
           <div key={index}>
             <Link
               className="group relative block overflow-hidden rounded-lg"
