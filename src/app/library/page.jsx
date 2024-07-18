@@ -55,35 +55,39 @@ const Library = () => {
 
           if (content) {
             try {
-              const res = await chatSession.sendMessageStream(
+              const res = await chatSession.sendMessage(
                 "Paper:" + content + PROMPT
               );
 
-              for await (const item of res.stream) {
-                resText += item.candidates[0].content.parts[0].text;
-              }
+              // for await (const item of res.stream) {
+              //   resText += item.candidates[0].content.parts[0].text;
+              // }
 
-              const jsonStr = extractJsonString(resText);
+              // const jsonStr = extractJsonString(res);
 
               // const resJson = JSON.parse(jsonStr);
 
-              console.log("Response JSON:", jsonStr);
+              console.log("Response JSON:", res);
 
               setIsGen(false);
+
               // Check if title already exists in updatedBooks
               if (!isGen && !localBooks.some((book) => book.title === title)) {
-                console.log("pushing book: " + title);
-                setLocalBooks((prevBooks) => [
-                  ...prevBooks,
-                  {
-                    cover: `/book-covers/bc${random(0, 12)}.png`, // Dynamic cover path
-                    title: title,
-                    resJson: resJson,
-                  },
-                ]);
+                // console.log("pushing book: " + title);
+                // setLocalBooks((prevBooks) => [
+                //   ...prevBooks,
+                //   {
+                //     cover: `/book-covers/bc${random(0, 12)}.png`, // Dynamic cover path
+                //     title: title,
+                //     resJson: res,
+                //   },
+                // ]);
+                const books = []
               }
-              await new Promise((resolve) => setTimeout(resolve, 10000));
-              
+              const jsonData = JSON.stringify(localBooks, null, 2);
+              writeDataToFile(jsonData);
+              await new Promise((resolve) => setTimeout(resolve, 60000));
+
             } catch (error) {
               console.error("Error processing file:", file, error);
             }
@@ -93,8 +97,8 @@ const Library = () => {
         console.log("generating complete..");
 
         //next step
-        const jsonData = JSON.stringify(localBooks, null, 2);
-        writeDataToFile(jsonData);
+        // const jsonData = JSON.stringify(localBooks, null, 2);
+        // writeDataToFile(jsonData);
       } catch (error) {
         console.error("Error processing files:", error);
       }
