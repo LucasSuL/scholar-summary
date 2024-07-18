@@ -22,45 +22,56 @@ const reviews = [
     rating: 5,
     name: "John Smith",
     comment:
-      "I am amazed by the ease and accuracy of the AI-powered paper search and summary features on this platform. It’s incredibly helpful for quickly understanding complex research topics. This tool has revolutionized our approach to accessing and digesting academic content!"
+      "I am amazed by the ease and accuracy of the AI-powered paper search and summary features on this platform. It’s incredibly helpful for quickly understanding complex research topics. This tool has revolutionized our approach to accessing and digesting academic content!",
   },
   {
     avatar: "/users/user-2.png",
     rating: 4,
     name: "Emily Johnson",
     comment:
-      "Our team has benefited greatly from the AI-driven paper analysis and summary capabilities offered by this platform. It has significantly enhanced our ability to comprehend and utilise academic literature effectively. Highly recommended for researchers and students alike!"
+      "Our team has benefited greatly from the AI-driven paper analysis and summary capabilities offered by this platform. It has significantly enhanced our ability to comprehend and utilise academic literature effectively. Highly recommended for researchers and students alike!",
   },
   {
     avatar: "/users/user-3.png",
     rating: 5,
     name: "Sophia Brown",
     comment:
-      "Using this platform has transformed our research process. The AI-powered paper search and summary tools are incredibly intuitive and efficient, saving us valuable time. The user interface is seamless, making it accessible for everyone in our academic team."
+      "Using this platform has transformed our research process. The AI-powered paper search and summary tools are incredibly intuitive and efficient, saving us valuable time. The user interface is seamless, making it accessible for everyone in our academic team.",
   },
   {
     avatar: "/users/user-4.jpg",
     rating: 5,
     name: "David Wilson",
     comment:
-      "I am impressed by how this platform simplifies the process of accessing and summarising research papers. It has significantly improved our research productivity and knowledge sharing. The support team is also excellent, providing prompt assistance whenever needed."
+      "I am impressed by how this platform simplifies the process of accessing and summarising research papers. It has significantly improved our research productivity and knowledge sharing. The support team is also excellent, providing prompt assistance whenever needed.",
   },
   {
     avatar: "/users/user-5.jpg",
     rating: 4,
     name: "Michael Miller",
     comment:
-      "The AI-driven features of this platform are outstanding. They have streamlined our ability to find and digest academic papers efficiently. This tool is invaluable for anyone looking to enhance their research capabilities and stay updated with the latest studies."
+      "The AI-driven features of this platform are outstanding. They have streamlined our ability to find and digest academic papers efficiently. This tool is invaluable for anyone looking to enhance their research capabilities and stay updated with the latest studies.",
   },
   {
     avatar: "/users/user-6.png",
     rating: 5,
     name: "Emma Davis",
     comment:
-      "We've been using this platform extensively, and it has exceeded our expectations. The AI-powered paper search and summary functionalities have transformed how we engage with scholarly content. Highly recommended for academics and researchers!"
-  }
+      "We've been using this platform extensively, and it has exceeded our expectations. The AI-powered paper search and summary functionalities have transformed how we engage with scholarly content. Highly recommended for academics and researchers!",
+  },
 ];
 
+const categories = [
+  { name: 'Economics', img: 'https://plus.unsplash.com/premium_photo-1661604346220-5208d18cb34e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RWNvbm9taWNzfGVufDB8fDB8fHww' },
+  { name: 'Grid', img: 'https://plus.unsplash.com/premium_photo-1674677788092-a28a2bd9bc0a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8R3JpZHxlbnwwfHwwfHx8MA%3D%3D' },
+  { name: 'Modelling', img: 'https://images.unsplash.com/photo-1601119479271-21ca92049c81?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNvZGUlMjBNb2RlbGxpbmd8ZW58MHx8MHx8fDA%3D' },
+  { name: 'Nanocatalysis', img: 'https://plus.unsplash.com/premium_photo-1675290413581-e599ca331a73?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TmFub2NhdGFseXNpc3xlbnwwfHwwfHx8MA%3D%3D' },
+  { name: 'Innovation', img: 'https://images.unsplash.com/photo-1493612276216-ee3925520721?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8SW5ub3ZhdGlvbnxlbnwwfHwwfHx8MA%3D%3D' },
+  { name: 'Photocatalyst', img: 'https://plus.unsplash.com/premium_photo-1678743133487-d501f3b0696b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZW5lcmd5fGVufDB8fDB8fHww' },
+  { name: 'Materials', img: 'https://plus.unsplash.com/premium_photo-1716824502431-b93e3756a6aa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TWF0ZXJpYWxzJTIwc3RvcmluZyUyMGVuZXJneXxlbnwwfHwwfHx8MA%3D%3D' },
+  { name: 'Hydrogen', img: 'https://plus.unsplash.com/premium_photo-1691623818912-5fdc155557a9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8SHlkcm9nZW58ZW58MHx8MHx8fDA%3D' },
+  { name: 'Ammonia', img: 'https://plus.unsplash.com/premium_photo-1669584523348-9622a2526032?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QW1tb25pYXxlbnwwfHwwfHx8MA%3D%3D' }
+];
 
 
 
@@ -103,81 +114,42 @@ const Hero = () => {
           </div>
         </div>
       </section>
-      {/* <div class="bg-gradient-to-b from-green-50 to-green-100">
-        <section class="py-10 sm:py-16 lg:py-24">
-          <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
-              <div>
-                <h1 class="text-4xl font-bold text-black sm:text-6xl lg:text-7xl">
-                  Collaborate remotely, with
-                  <div class="relative inline-flex">
-                    <span class="absolute inset-x-0 bottom-0 border-b-[30px] border-[#4ADE80]"></span>
-                    <h1 class="relative text-4xl font-bold text-black sm:text-6xl lg:text-7xl">
-                      Postcrafts.
-                    </h1>
+      <section>
+        <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+          <header className="">
+            <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">
+              Discover Research Summaries.
+            </h2>
+
+            {/* <p className="mt-4 max-w-md text-gray-500">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
+              praesentium cumque iure dicta incidunt est ipsam, officia dolor
+              fugit natus?
+            </p> */}
+          </header>
+
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {categories.map((cat, index) => (
+              <li key={index}>
+                <a href="#" className="group block overflow-hidden">
+                  <img
+                    src={cat.img}
+                    alt=""
+                    className="h-[150px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[150px] rounded-lg hover:rounded-mg"
+                  />
+
+                  <div className="relative bg-white pt-3">
+                    <h3 className="text-md text-gray-700 group-hover:underline group-hover:underline-offset-4">
+                      {cat.name}
+                    </h3>
                   </div>
-                </h1>
-
-                <p class="mt-8 text-base text-black sm:text-xl">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia consequat duis enim velit mollit.
-                  Exercitation veniam consequat.
-                </p>
-
-                <div class="mt-10 sm:flex sm:items-center sm:space-x-8">
-                  <a
-                    href="#"
-                    title=""
-                    class="inline-flex items-center justify-center px-10 py-4 text-base font-semibold text-white transition-all duration-200 bg-orange-500 hover:bg-orange-600 focus:bg-orange-600"
-                    role="button"
-                  >
-                    {" "}
-                    Start exploring{" "}
-                  </a>
-
-                  <a
-                    href="#"
-                    title=""
-                    class="inline-flex items-center mt-6 text-base font-semibold transition-all duration-200 sm:mt-0 hover:opacity-80"
-                  >
-                    <svg
-                      class="w-10 h-10 mr-3"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        fill="#F97316"
-                        stroke="#F97316"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                      />
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.5"
-                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    Watch video
-                  </a>
-                </div>
-              </div>
-
-              <div>
-                <img
-                  class="w-full"
-                  src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/2/hero-img.png"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-      </div> */}
+                </a>
+              </li>
+            ))}
+          
+          </ul>
+        </div>
+      </section>
       <section id="2-steps">
         <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
           <h1 className="text-3xl font-extrabold sm:text-5xl text-center mb-12">
@@ -273,7 +245,9 @@ const Hero = () => {
           </div>
         </div>
       </section>
-      ```jsx
+
+    
+
       <section id="3-academic-summarizer">
         <section className="bg-gray-900 text-white pb-20">
           <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
@@ -383,54 +357,85 @@ const Hero = () => {
         </section>
       </section>
 
-     <section id="4-reviews">
-  <section className="bg-white">
-    <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-      <h2 className="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-        Read trusted reviews from our customers
-      </h2>
+      <section className="overflow-hidden sm:grid sm:grid-cols-2 sm:items-center">
+        <div className="p-8 md:p-12 lg:px-16 lg:py-24">
+          <div className="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
+            <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit
+            </h2>
 
-      <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
-        {reviews.map((review, index) => (
-          <blockquote key={index} className="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
-            <div className="flex items-center gap-4">
-              <img
-                alt=""
-                src={review.avatar}
-                className="size-14 rounded-full object-cover"
-              />
-
-              <div>
-                <div className="flex justify-center gap-0.5 text-green-500">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <svg
-                      key={i}
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-
-                <p className="mt-0.5 text-lg font-medium text-gray-900">
-                  {review.name}
-                </p>
-              </div>
-            </div>
-
-            <p className="mt-4 text-gray-700">
-              {review.comment}
+            <p className="hidden text-gray-500 md:mt-4 md:block">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et,
+              egestas tempus tellus etiam sed. Quam a scelerisque amet
+              ullamcorper eu enim et fermentum, augue. Aliquet amet volutpat
+              quisque ut interdum tincidunt duis.
             </p>
-          </blockquote>
-        ))}
-      </div>
-    </div>
-  </section>
-</section>
 
+            <div className="mt-4 md:mt-8">
+              <a
+                href="#"
+                className="inline-block rounded bg-emerald-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 focus:outline-none focus:ring focus:ring-yellow-400"
+              >
+                Get Started Today
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <img
+          alt=""
+          src="https://images.unsplash.com/photo-1474366521946-c3d4b507abf2?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          className="h-full w-full object-cover sm:h-[calc(100%_-_2rem)] sm:self-end sm:rounded-ss-[30px] md:h-[calc(100%_-_4rem)] md:rounded-ss-[60px]"
+        />
+      </section>
+      <section id="4-reviews">
+        <section className="bg-white">
+          <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+            <h2 className="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              Read trusted reviews from our customers
+            </h2>
+
+            <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
+              {reviews.map((review, index) => (
+                <blockquote
+                  key={index}
+                  className="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8"
+                >
+                  <div className="flex items-center gap-4">
+                    <img
+                      alt=""
+                      src={review.avatar}
+                      className="size-14 rounded-full object-cover"
+                    />
+
+                    <div>
+                      <div className="flex justify-center gap-0.5 text-green-500">
+                        {[...Array(review.rating)].map((_, i) => (
+                          <svg
+                            key={i}
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+
+                      <p className="mt-0.5 text-lg font-medium text-gray-900">
+                        {review.name}
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="mt-4 text-gray-700">{review.comment}</p>
+                </blockquote>
+              ))}
+            </div>
+          </div>
+        </section>
+      </section>
     </div>
   );
 };
