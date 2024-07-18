@@ -72,7 +72,7 @@ const Library = () => {
               setIsGen(false);
 
               // Check if title already exists in updatedBooks
-              if (!isGen && !localBooks.some((book) => book.title === title)) {
+              // if (!isGen && !localBooks.some((book) => book.title === title)) {
                 // console.log("pushing book: " + title);
                 // setLocalBooks((prevBooks) => [
                 //   ...prevBooks,
@@ -82,8 +82,7 @@ const Library = () => {
                 //     resJson: res,
                 //   },
                 // ]);
-                const books = []
-              }
+              // }
               const jsonData = JSON.stringify(localBooks, null, 2);
               writeDataToFile(jsonData);
               await new Promise((resolve) => setTimeout(resolve, 60000));
