@@ -62,18 +62,43 @@ const reviews = [
 ];
 
 const categories = [
-  { name: 'Economics', img: 'https://plus.unsplash.com/premium_photo-1661604346220-5208d18cb34e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RWNvbm9taWNzfGVufDB8fDB8fHww' },
-  { name: 'Grid', img: 'https://plus.unsplash.com/premium_photo-1674677788092-a28a2bd9bc0a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8R3JpZHxlbnwwfHwwfHx8MA%3D%3D' },
-  { name: 'Modelling', img: 'https://images.unsplash.com/photo-1601119479271-21ca92049c81?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNvZGUlMjBNb2RlbGxpbmd8ZW58MHx8MHx8fDA%3D' },
-  { name: 'Nanocatalysis', img: 'https://plus.unsplash.com/premium_photo-1675290413581-e599ca331a73?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TmFub2NhdGFseXNpc3xlbnwwfHwwfHx8MA%3D%3D' },
-  { name: 'Innovation', img: 'https://images.unsplash.com/photo-1493612276216-ee3925520721?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8SW5ub3ZhdGlvbnxlbnwwfHwwfHx8MA%3D%3D' },
-  { name: 'Photocatalyst', img: 'https://plus.unsplash.com/premium_photo-1678743133487-d501f3b0696b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZW5lcmd5fGVufDB8fDB8fHww' },
-  { name: 'Materials', img: 'https://plus.unsplash.com/premium_photo-1716824502431-b93e3756a6aa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TWF0ZXJpYWxzJTIwc3RvcmluZyUyMGVuZXJneXxlbnwwfHwwfHx8MA%3D%3D' },
-  { name: 'Hydrogen', img: 'https://plus.unsplash.com/premium_photo-1691623818912-5fdc155557a9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8SHlkcm9nZW58ZW58MHx8MHx8fDA%3D' },
-  { name: 'Ammonia', img: 'https://plus.unsplash.com/premium_photo-1669584523348-9622a2526032?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QW1tb25pYXxlbnwwfHwwfHx8MA%3D%3D' }
+  {
+    name: "Economics",
+    img: "https://plus.unsplash.com/premium_photo-1661604346220-5208d18cb34e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RWNvbm9taWNzfGVufDB8fDB8fHww",
+  },
+  {
+    name: "Grid",
+    img: "https://plus.unsplash.com/premium_photo-1674677788092-a28a2bd9bc0a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8R3JpZHxlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    name: "Modelling",
+    img: "https://images.unsplash.com/photo-1601119479271-21ca92049c81?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNvZGUlMjBNb2RlbGxpbmd8ZW58MHx8MHx8fDA%3D",
+  },
+  {
+    name: "Nanocatalysis",
+    img: "https://plus.unsplash.com/premium_photo-1675290413581-e599ca331a73?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TmFub2NhdGFseXNpc3xlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    name: "Innovation",
+    img: "https://images.unsplash.com/photo-1493612276216-ee3925520721?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8SW5ub3ZhdGlvbnxlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    name: "Photocatalyst",
+    img: "https://plus.unsplash.com/premium_photo-1678743133487-d501f3b0696b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZW5lcmd5fGVufDB8fDB8fHww",
+  },
+  {
+    name: "Materials",
+    img: "https://plus.unsplash.com/premium_photo-1716824502431-b93e3756a6aa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TWF0ZXJpYWxzJTIwc3RvcmluZyUyMGVuZXJneXxlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    name: "Hydrogen",
+    img: "https://plus.unsplash.com/premium_photo-1691623818912-5fdc155557a9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8SHlkcm9nZW58ZW58MHx8MHx8fDA%3D",
+  },
+  {
+    name: "Ammonia",
+    img: "https://plus.unsplash.com/premium_photo-1669584523348-9622a2526032?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QW1tb25pYXxlbnwwfHwwfHx8MA%3D%3D",
+  },
 ];
-
-
 
 const Hero = () => {
   return (
@@ -146,7 +171,6 @@ const Hero = () => {
                 </a>
               </li>
             ))}
-          
           </ul>
         </div>
       </section>
@@ -245,8 +269,6 @@ const Hero = () => {
           </div>
         </div>
       </section>
-
-    
 
       <section id="3-academic-summarizer">
         <section className="bg-gray-900 text-white pb-20">
@@ -356,20 +378,211 @@ const Hero = () => {
           </div>
         </section>
       </section>
+      {/* <div class="bg-gradient-to-b from-green-50 to-green-100">
+        <header class="">
+          <div class="px-4 mx-auto sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+              <div class="flex-shrink-0">
+                <a href="#" title="" class="flex">
+                  <img
+                    class="w-auto h-8"
+                    src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/2/logo.svg"
+                    alt=""
+                  />
+                </a>
+              </div>
+
+              <button
+                type="button"
+                class="inline-flex p-1 text-black transition-all duration-200 border border-black lg:hidden focus:bg-gray-100 hover:bg-gray-100"
+              >
+                <svg
+                  class="block w-6 h-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+
+                <svg
+                  class="hidden w-6 h-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              </button>
+
+              <div class="hidden ml-auto lg:flex lg:items-center lg:justify-center lg:space-x-10">
+                <a
+                  href="#"
+                  title=""
+                  class="text-base font-semibold text-black transition-all duration-200 hover:text-opacity-80"
+                >
+                  {" "}
+                  Features{" "}
+                </a>
+
+                <a
+                  href="#"
+                  title=""
+                  class="text-base font-semibold text-black transition-all duration-200 hover:text-opacity-80"
+                >
+                  {" "}
+                  Solutions{" "}
+                </a>
+
+                <a
+                  href="#"
+                  title=""
+                  class="text-base font-semibold text-black transition-all duration-200 hover:text-opacity-80"
+                >
+                  {" "}
+                  Resources{" "}
+                </a>
+
+                <a
+                  href="#"
+                  title=""
+                  class="text-base font-semibold text-black transition-all duration-200 hover:text-opacity-80"
+                >
+                  {" "}
+                  Pricing{" "}
+                </a>
+
+                <div class="w-px h-5 bg-black/20"></div>
+
+                <a
+                  href="#"
+                  title=""
+                  class="text-base font-semibold text-black transition-all duration-200 hover:text-opacity-80"
+                >
+                  {" "}
+                  Log in{" "}
+                </a>
+
+                <a
+                  href="#"
+                  title=""
+                  class="inline-flex items-center justify-center px-5 py-2.5 text-base font-semibold text-black border-2 border-black hover:bg-black hover:text-white transition-all duration-200 focus:bg-black focus:text-white"
+                  role="button"
+                >
+                  {" "}
+                  Try for free{" "}
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="py-10 sm:py-16 lg:py-24">
+          <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
+              <div>
+                <h1 class="text-4xl font-bold text-black sm:text-6xl lg:text-7xl">
+                  Collaborate remotely, with
+                  <div class="relative inline-flex">
+                    <span class="absolute inset-x-0 bottom-0 border-b-[30px] border-[#4ADE80]"></span>
+                    <h1 class="relative text-4xl font-bold text-black sm:text-6xl lg:text-7xl">
+                      Postcrafts.
+                    </h1>
+                  </div>
+                </h1>
+
+                <p class="mt-8 text-base text-black sm:text-xl">
+                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                  amet sint. Velit officia consequat duis enim velit mollit.
+                  Exercitation veniam consequat.
+                </p>
+
+                <div class="mt-10 sm:flex sm:items-center sm:space-x-8">
+                  <a
+                    href="#"
+                    title=""
+                    class="inline-flex items-center justify-center px-10 py-4 text-base font-semibold text-white transition-all duration-200 bg-orange-500 hover:bg-orange-600 focus:bg-orange-600"
+                    role="button"
+                  >
+                    {" "}
+                    Start exploring{" "}
+                  </a>
+
+                  <a
+                    href="#"
+                    title=""
+                    class="inline-flex items-center mt-6 text-base font-semibold transition-all duration-200 sm:mt-0 hover:opacity-80"
+                  >
+                    <svg
+                      class="w-10 h-10 mr-3"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        fill="#F97316"
+                        stroke="#F97316"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    Watch video
+                  </a>
+                </div>
+              </div>
+
+              <div>
+                <img
+                  class="w-full"
+                  src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/2/hero-img.png"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </div> */}
 
       <section className="overflow-hidden sm:grid sm:grid-cols-2 sm:items-center">
         <div className="p-8 md:p-12 lg:px-16 lg:py-24">
           <div className="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-            <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit
-            </h2>
+            <h1 class="text-2xl font-bold text-black sm:text-4xl lg:text-5xl">
+              Boost your reading, with
+              <div class="relative inline-flex">
+                <span class="absolute inset-x-0 bottom-0 border-b-[20px] border-[#4ADE80]"></span>
+                <h1 class="relative text-2xl font-bold text-black sm:text-4xl lg:text-5xl">
+                  AI Scholar Summary
+                </h1>
+              </div>
+            </h1>
 
-            <p className="hidden text-gray-500 md:mt-4 md:block">
+            {/* <p className="hidden text-gray-500 md:mt-4 md:block">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et,
               egestas tempus tellus etiam sed. Quam a scelerisque amet
               ullamcorper eu enim et fermentum, augue. Aliquet amet volutpat
               quisque ut interdum tincidunt duis.
-            </p>
+            </p> */}
 
             <div className="mt-4 md:mt-8">
               <a
